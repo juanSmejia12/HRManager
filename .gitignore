@@ -1,0 +1,77 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]og/
+*.log
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Visual Studio Code
+.vscode/
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+*.sln.iml
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## DotCover
+.idea/.idea.DotSettings
+
+## Others
+*.dbmdl
+*.bak
+*.tmp
+*.log
+*.pdb
+*.cache
+
+## node_modules (if using Node/npm)
+node_modules/
+
+## Environment files
+.env
+.env.*.local
+
+## IIS Express
+.vsconfig
+/.vs/
+
+## JetBrains Rider
+.idea/
+
+## Coverage tools
+coverage/
+*.lcov
+
+## Transpiled JS
+wwwroot/js/
+wwwroot/css/
