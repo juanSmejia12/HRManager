@@ -18,7 +18,5 @@ namespace HRManager.Models
         [Required]
         [StringLength(100)]
         public string PasswordHash { get; set; }
-
-        // Podemos agregar más propiedades aquí, como Rol, FechaCreacion, etc.
     }
 }
