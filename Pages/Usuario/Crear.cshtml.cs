@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HRManager.Models;
 
-namespace HRManager.Pages.Usuarios 
+namespace HRManager.Pages.Usuario
 {
     public class CrearModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace HRManager.Pages.Usuarios
         }
 
         [BindProperty]
-        public Usuario Usuario { get; set; } 
+        public Usuarios Usuario { get; set; } 
 
         public async Task<IActionResult> OnPostAsync()
         {

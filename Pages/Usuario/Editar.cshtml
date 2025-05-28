@@ -1,16 +1,18 @@
 ﻿@page
-@model HRManager.Pages.Usuario.CrearModel
+@model HRManager.Pages.Usuario.EditarModel
+
 @{
-    ViewData["Title"] = "Crear Usuario";
+    ViewData["Title"] = "Editar Usuario";
 }
 
-<h1>Crear Usuario</h1>
+<h1>Editar Usuario</h1>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Usuario.IdUsuario" />
             <div class="form-group">
                 <label asp-for="Usuario.NombreUsuario" class="control-label"></label>
                 <input asp-for="Usuario.NombreUsuario" class="form-control" />
@@ -27,7 +29,7 @@
                 <span asp-validation-for="Usuario.PasswordHash" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
     </div>
