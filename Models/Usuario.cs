@@ -2,7 +2,7 @@
 
 namespace HRManager.Models
 {
-    public class Usuario
+    public class Usuarios
     {
         [Key]
         public int IdUsuario { get; set; }

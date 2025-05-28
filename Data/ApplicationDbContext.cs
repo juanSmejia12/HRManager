@@ -10,6 +10,6 @@ namespace HRManager.Data
         {
         }
 
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
     }
 }
