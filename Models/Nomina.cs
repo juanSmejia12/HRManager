@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace HRManager.Models
 {
@@ -7,13 +8,14 @@ namespace HRManager.Models
     {
         [Key]
         public int IdNomina { get; set; }
-        public int IdEmpleado { get; set; }
-        public DateTime PeriodoInicio { get; set; }
-        public DateTime PeriodoFin { get; set; }
 
-        [Column(TypeName = "decimal(12,2)")]
-        public decimal TotalPagado { get; set; }
+        [Required]
+        public int IdEmpleado_fk { get; set; }
+        [Required]
+        public string PeriodoInicio { get; set; }
+        [Required]
+        public string PeriodoFin { get; set; }
+        public float TotalPagado { get; set; }
 
-        public Empleado Empleado { get; set; }
     }
 }
