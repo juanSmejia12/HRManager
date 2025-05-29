@@ -1,19 +1,20 @@
+using HRManager.Models;
+using HRManager.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
-using HRManager.Models;
-using HRManager.Data;
 
 
-namespace HRManager.Pages.Shared.Nomina
+
+namespace HRManager.Pages.Nomina
 {
     [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly HRManagerContext _context;
+        private readonly HRManagerDbContext _context;
 
-        public IndexModel(HRManagerContext context)
+        public IndexModel(HRManagerDbContext context)
         {
             _context = context;
         }
