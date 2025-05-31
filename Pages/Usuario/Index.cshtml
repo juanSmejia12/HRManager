@@ -1,0 +1,42 @@
+﻿@page
+@model HRManager.Pages.Usuario.IndexModel
+@{
+    ViewData["Title"] = "Lista de Usuarios";
+}
+
+<h1>Lista de Usuarios</h1>
+
+<p>
+    <a asp-page="Crear">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].NombreUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Usuarios)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-page="./Editar" asp-route-id="@item.IdUsuario">Editar</a> |
+                    <a asp-page="./Detalles" asp-route-id="@item.IdUsuario">Detalles</a> |
+                    <a asp-page="./Eliminar" asp-route-id="@item.IdUsuario">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
