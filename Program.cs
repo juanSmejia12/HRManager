@@ -1,9 +1,7 @@
 using HRManager.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
-=======
-using Microsoft.AspNetCore.Identity; // Añadir este using
->>>>>>> jhei
+using System.Globalization;
 
 namespace HRManager
 {
@@ -16,26 +14,31 @@ namespace HRManager
             // Add services to the container.
             builder.Services.AddRazorPages();
 
-<<<<<<< HEAD
-            builder.Services.AddDbContext<HRManagerDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("HRManagerDB"))
-            );
+            // ConfiguraciÃ³n de autenticaciÃ³n con Identity
+            builder.Services.AddAuthentication().AddCookie("MyCookiesAuth", options =>
+            {
+                options.Cookie.Name = "MyCookiesAuth";
+                options.LoginPath = "/Account/Login";
+            });
 
-=======
+            // âœ… Registro de ApplicationDbContext para Identity
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // Añadir Identity
+            // âœ… Registro adicional de HRManagerDbContext
+            builder.Services.AddDbContext<HRManagerDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // ConfiguraciÃ³n de Identity
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-                    options.SignIn.RequireConfirmedAccount = false // Puedes cambiar esto después
-                )
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultUI();  // Añadir la interfaz de usuario por defecto de Identity
->>>>>>> jhei
+                .AddDefaultUI();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
@@ -47,11 +50,16 @@ namespace HRManager
 
             app.UseRouting();
 
-            app.UseAuthentication(); // Añadir esto antes de UseAuthorization
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapRazorPages();
-            app.MapControllers(); // Añadir esto si usas controladores (necesario para la UI de Identity)
+            app.MapControllers();
+
+            // ConfiguraciÃ³n de cultura
+            var cultureInfo = new CultureInfo("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
             app.Run();
         }

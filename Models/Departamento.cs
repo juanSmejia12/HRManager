@@ -6,7 +6,9 @@ namespace HRManager.Models
     {
         [Key]
         public int IdDepartamento { get; set; }
+
         public string NombreDepartamento { get; set; }
+
         public string Ubicacion { get; set; }
 
         public ICollection<Empleado> Empleados { get; set; }

@@ -6,7 +6,6 @@ using HRManager.Models;
 
 namespace HRManager.Pages.Departamentos
 {
-    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly HRManagerDbContext _context;

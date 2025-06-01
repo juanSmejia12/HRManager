@@ -1,5 +1,5 @@
 ﻿@page
-@model HRManager.Pages.Nomina.IndexModel
+@model HRManager.Pages.Nominas.IndexModel
 @{
     ViewData["Title"] = "Index Nomina";
 }
@@ -14,22 +14,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nomina[0].IdEmpleado_fk)
+                @Html.DisplayNameFor(model => model.Nominas[0].IdEmpleado_fk)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nomina[0].PeriodoInicio)
+                @Html.DisplayNameFor(model => model.Nominas[0].PeriodoInicio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nomina[0].PeriodoFin)
+                @Html.DisplayNameFor(model => model.Nominas[0].PeriodoFin)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nomina[0].TotalPagado)
+                @Html.DisplayNameFor(model => model.Nominas[0].TotalPagado)
             </th>
 
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Nomina)
+        @foreach (var item in Model.Nominas)
         {
             <tr>
                 <td>

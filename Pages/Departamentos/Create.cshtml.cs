@@ -24,6 +24,8 @@ namespace HRManager.Pages.Departamentos
 
         public async Task<IActionResult> OnPostAsync()
         {
+            Console.WriteLine("Entró al OnPostAsync");
+
             if (!ModelState.IsValid || _context.Departamentos == null || Departamento == null)
             {
                 return Page();
@@ -31,6 +33,8 @@ namespace HRManager.Pages.Departamentos
 
             _context.Departamentos.Add(Departamento);
             await _context.SaveChangesAsync();
+
+            Console.WriteLine($"Departamento guardado: {Departamento.NombreDepartamento} - {Departamento.Ubicacion}");
 
             return RedirectToPage("./Index");
         }

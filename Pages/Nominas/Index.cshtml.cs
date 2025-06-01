@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 
 
-namespace HRManager.Pages.Nomina
+namespace HRManager.Pages.Nominas
 {
     [Authorize]
     public class IndexModel : PageModel
@@ -19,13 +19,13 @@ namespace HRManager.Pages.Nomina
             _context = context;
         }
 
-        public IList<Nominas> Nomina { get; set; }
+        public IList<Nomina> Nominas { get; set; }
 
         public async Task OnGetAsync()
         {
-            if (_context.Nomina != null)
+            if (_context.Nominas != null)
             {
-                Nomina = await _context.Nomina.ToListAsync();
+                Nominas = await _context.Nominas.ToListAsync();
             }
         }
 

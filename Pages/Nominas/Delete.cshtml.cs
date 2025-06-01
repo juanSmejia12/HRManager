@@ -3,8 +3,9 @@ using HRManager.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
-namespace HRManager.Pages.Nomina
+namespace HRManager.Pages.Nominas
 {
     [Authorize]
     public class DeleteModel : PageModel
@@ -17,16 +18,16 @@ namespace HRManager.Pages.Nomina
         }
 
         [BindProperty]
-        public Nominas Nomina { get; set; }
+        public Nomina Nomina { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Nomina == null)
+            if (id == null || _context.Nominas == null)
             {
                 return NotFound();
             }
 
-            var nomina = await _context.Nomina.FirstOrDefaultAsync(m => m.IdNomina == id);
+            var nomina = await _context.Nominas.FirstOrDefaultAsync(m => m.IdNomina == id);
 
             if (nomina == null)
             {
@@ -42,16 +43,16 @@ namespace HRManager.Pages.Nomina
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Nomina == null)
+            if (id == null || _context.Nominas == null)
             {
                 return NotFound();
             }
-            var nomina = await _context.Nomina.FindAsync(id);
+            var nomina = await _context.Nominas.FindAsync(id);
 
             if (nomina != null)
             {
                 Nomina = nomina;
-                _context.Nomina.Remove(Nomina);
+                _context.Nominas.Remove(Nomina);
                 await _context.SaveChangesAsync();
             }
 

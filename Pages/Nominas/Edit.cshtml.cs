@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace HRManager.Pages.Nomina
+namespace HRManager.Pages.Nominas
 {
     [Authorize]
     public class EditModel : PageModel
@@ -17,7 +17,7 @@ namespace HRManager.Pages.Nomina
             this._context = context;
         }
         [BindProperty]
-        public Nominas Nomina { get; set; }
+        public Nomina Nomina { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -25,7 +25,7 @@ namespace HRManager.Pages.Nomina
                 return NotFound();
             }
 
-            var nomina = await _context.Nomina.FirstOrDefaultAsync(m =>
+            var nomina = await _context.Nominas.FirstOrDefaultAsync(m =>
                 m.IdNomina == id);
             if (nomina == null)
             {
@@ -63,7 +63,7 @@ namespace HRManager.Pages.Nomina
 
         public bool NominaExists(int id)
         {
-            return (_context.Nomina?.Any(e => e.IdNomina == id)).GetValueOrDefault();
+            return (_context.Nominas?.Any(e => e.IdNomina == id)).GetValueOrDefault();
         }
 
         ///----///
